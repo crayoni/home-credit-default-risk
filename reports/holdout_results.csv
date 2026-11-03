@@ -1,0 +1,13 @@
+,VALUE
+Holdout applications,61303.0
+Actual difficulty cases,4946.0
+Baseline difficulty rate (%),8.068120646624145
+Holdout ROC AUC,0.7604893141902883
+Holdout average precision,0.23832267696325957
+Applications selected for review,6131.0
+Difficulty cases found,1656.0
+False alarms,4475.0
+Difficulty cases missed,3290.0
+Review precision (%),27.01027564834448
+Review recall (%),33.481601293974926
+Lift,3.347777856996485
