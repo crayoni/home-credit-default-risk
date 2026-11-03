@@ -1,28 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650" role="img" aria-labelledby="title desc">
 <title id="title">Holdout review queue confusion matrix</title>
-<desc id="desc">Confusion matrix for selecting the highest-risk ten percent of holdout applications for additional review. True positives 1656, false negatives 3290, false positives 4475, true negatives 51882.</desc>
+<desc id="desc">Rows are actual TARGET class 0 and 1; columns are not selected and selected for review. True negatives 51882, false positives 4475, false negatives 3290, true positives 1656.</desc>
 <rect width="1000" height="650" fill="#ffffff"/>
 <text x="500" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#182230">Holdout review-queue confusion matrix</text>
 <text x="500" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#586579">Positive prediction = selected for additional review (highest-risk 10%)</text>
-<text x="550" y="133" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#253247">Predicted review decision</text>
-<text x="342" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">Selected for review</text>
-<text x="342" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#586579">(positive)</text>
-<text x="648" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">Not selected</text>
-<text x="648" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#586579">(negative)</text>
-<text x="80" y="300" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">Actual</text>
-<text x="80" y="322" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">difficulty</text>
-<text x="80" y="490" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">Actual no</text>
-<text x="80" y="512" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">difficulty</text>
-<rect x="210" y="215" width="265" height="150" rx="12" fill="#d9efe6" stroke="#9acdb8"/>
-<rect x="485" y="215" width="265" height="150" rx="12" fill="#fce7d8" stroke="#eab995"/>
-<rect x="210" y="375" width="265" height="150" rx="12" fill="#fce7d8" stroke="#eab995"/>
-<rect x="485" y="375" width="265" height="150" rx="12" fill="#dce8f7" stroke="#a9c0df"/>
+<text x="560" y="132" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#253247">Predicted review decision</text>
+<text x="407" y="173" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">Not selected (0)</text>
+<text x="700" y="173" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">Selected (1)</text>
+<text x="75" y="303" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">Actual</text>
+<text x="75" y="326" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">TARGET = 0</text>
+<text x="75" y="478" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">Actual</text>
+<text x="75" y="501" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#253247">TARGET = 1</text>
+<rect x="260" y="205" width="285" height="145" rx="12" fill="#dce8f7" stroke="#a9c0df"/>
+<rect x="555" y="205" width="285" height="145" rx="12" fill="#fce7d8" stroke="#eab995"/>
+<rect x="260" y="360" width="285" height="145" rx="12" fill="#fce7d8" stroke="#eab995"/>
+<rect x="555" y="360" width="285" height="145" rx="12" fill="#d9efe6" stroke="#9acdb8"/>
 <g font-family="Arial,sans-serif" text-anchor="middle" fill="#182230">
-<text x="342" y="273" font-size="14" font-weight="700">TRUE POSITIVES</text><text x="342" y="316" font-size="32" font-weight="700">1,656</text><text x="342" y="344" font-size="14">33.48% of difficulty cases found</text>
-<text x="618" y="273" font-size="14" font-weight="700">FALSE NEGATIVES</text><text x="618" y="316" font-size="32" font-weight="700">3,290</text><text x="618" y="344" font-size="14">66.52% of difficulty cases missed</text>
-<text x="342" y="433" font-size="14" font-weight="700">FALSE POSITIVES</text><text x="342" y="476" font-size="32" font-weight="700">4,475</text><text x="342" y="504" font-size="14">Selected without recorded difficulty</text>
-<text x="618" y="433" font-size="14" font-weight="700">TRUE NEGATIVES</text><text x="618" y="476" font-size="32" font-weight="700">51,882</text><text x="618" y="504" font-size="14">Not selected; no recorded difficulty</text>
+<text x="402" y="258" font-size="14" font-weight="700">TRUE NEGATIVES</text><text x="402" y="302" font-size="32" font-weight="700">51,882</text><text x="402" y="329" font-size="14">No difficulty; not selected</text>
+<text x="697" y="258" font-size="14" font-weight="700">FALSE POSITIVES</text><text x="697" y="302" font-size="32" font-weight="700">4,475</text><text x="697" y="329" font-size="14">No difficulty; selected</text>
+<text x="402" y="413" font-size="14" font-weight="700">FALSE NEGATIVES</text><text x="402" y="457" font-size="32" font-weight="700">3,290</text><text x="402" y="484" font-size="14">Difficulty; not selected</text>
+<text x="697" y="413" font-size="14" font-weight="700">TRUE POSITIVES</text><text x="697" y="457" font-size="32" font-weight="700">1,656</text><text x="697" y="484" font-size="14">Difficulty; selected</text>
 </g>
-<text x="500" y="576" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#253247">Holdout: 61,303 applications · 4,946 actual difficulty cases · 6,131 reviewed</text>
-<text x="500" y="605" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#7a4b28">This is a 10% review-capacity rule, not a fixed probability-threshold classifier.</text>
+<text x="500" y="553" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#253247">Holdout: 61,303 applications · 4,946 actual difficulty cases · 6,131 reviewed</text>
+<text x="500" y="582" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#7a4b28">Capacity-based top-10% selection, not a fixed 0.50 probability threshold.</text>
+<text x="500" y="611" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#7a8797">Rows = actual TARGET (0, 1) · Columns = review selection (0, 1)</text>
 </svg>
