@@ -218,3 +218,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local competition datasets and generated model artifacts
+data/
+input/
+artifacts/
+*.parquet
+*.joblib
+*.pkl
+*.sqlite
+*.sqlite3
+*.db
+*.zip
+
+# Ignore local CSV exports by default, but keep curated reports
+*.csv
+!reports/*.csv
