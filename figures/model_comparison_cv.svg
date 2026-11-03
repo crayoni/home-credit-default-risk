@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+<title id="title">Five-fold cross-validation model comparison</title>
+<desc id="desc">Mean validation ROC AUC and average precision for Logistic Regression, Random Forest and XGBoost, with one standard deviation error bars.</desc>
+<rect width="1200" height="650" fill="#ffffff"/>
+<text x="600" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#182230">Model comparison — 5-fold cross-validation</text>
+<text x="600" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#586579">Mean validation score ± 1 standard deviation across folds · higher is better</text>
+<text x="80" y="145" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#182230">ROC AUC</text>
+<text x="80" y="172" font-family="Arial,sans-serif" font-size="13" fill="#586579">Axis shown from 0.72 to 0.77</text>
+<text x="80" y="390" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#182230">Average precision</text>
+<text x="80" y="417" font-family="Arial,sans-serif" font-size="13" fill="#586579">Axis shown from 0.20 to 0.26</text>
+<g font-family="Arial,sans-serif" font-size="13" fill="#637083" stroke="#e4e9ef">
+<line x1="330" y1="178" x2="330" y2="345"/><line x1="470" y1="178" x2="470" y2="345"/><line x1="610" y1="178" x2="610" y2="345"/><line x1="750" y1="178" x2="750" y2="345"/><line x1="890" y1="178" x2="890" y2="345"/><line x1="1030" y1="178" x2="1030" y2="345"/>
+<line x1="330" y1="424" x2="330" y2="590"/><line x1="446.7" y1="424" x2="446.7" y2="590"/><line x1="563.3" y1="424" x2="563.3" y2="590"/><line x1="680" y1="424" x2="680" y2="590"/><line x1="796.7" y1="424" x2="796.7" y2="590"/><line x1="913.3" y1="424" x2="913.3" y2="590"/><line x1="1030" y1="424" x2="1030" y2="590"/>
+</g>
+<g font-family="Arial,sans-serif" font-size="13" fill="#637083" text-anchor="middle">
+<text x="330" y="366">0.72</text><text x="470" y="366">0.73</text><text x="610" y="366">0.74</text><text x="750" y="366">0.75</text><text x="890" y="366">0.76</text><text x="1030" y="366">0.77</text>
+<text x="330" y="611">0.20</text><text x="446.7" y="611">0.21</text><text x="563.3" y="611">0.22</text><text x="680" y="611">0.23</text><text x="796.7" y="611">0.24</text><text x="913.3" y="611">0.25</text><text x="1030" y="611">0.26</text>
+</g>
+<g font-family="Arial,sans-serif" font-size="16" fill="#253247">
+<text x="80" y="219">Logistic regression</text><text x="80" y="274">Random forest</text><text x="80" y="329">XGBoost</text>
+<text x="80" y="465">Logistic regression</text><text x="80" y="520">Random forest</text><text x="80" y="575">XGBoost</text>
+</g>
+<g stroke-width="3" stroke-linecap="round">
+<line x1="503.3" y1="213" x2="628.7" y2="213" stroke="#4779b8"/><line x1="577.1" y1="268" x2="725.3" y2="268" stroke="#4779b8"/><line x1="685.6" y1="323" x2="832.5" y2="323" stroke="#4779b8"/>
+<line x1="503.3" y1="459" x2="560.1" y2="459" stroke="#16866b"/><line x1="630.3" y1="514" x2="725.0" y2="514" stroke="#16866b"/><line x1="768.7" y1="569" x2="885.4" y2="569" stroke="#16866b"/>
+</g>
+<g fill="#4779b8" stroke="#ffffff" stroke-width="2">
+<circle cx="566.9" cy="213" r="8"/><circle cx="651.8" cy="268" r="8"/><circle cx="759.6" cy="323" r="8"/>
+</g>
+<g fill="#16866b" stroke="#ffffff" stroke-width="2">
+<circle cx="531.0" cy="459" r="8"/><circle cx="677.4" cy="514" r="8"/><circle cx="827.8" cy="569" r="8"/>
+</g>
+<g font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#253247">
+<text x="1080" y="218">0.7370 ± 0.0045</text><text x="1080" y="273">0.7466 ± 0.0053</text><text x="1080" y="328">0.7561 ± 0.0052</text>
+<text x="1080" y="464">0.2177 ± 0.0024</text><text x="1080" y="519">0.2304 ± 0.0041</text><text x="1080" y="574">0.2427 ± 0.0050</text>
+</g>
+<text x="600" y="640" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#7a8797">Error bars show one fold-to-fold standard deviation, not a confidence interval.</text>
+</svg>
