@@ -1,2 +1,147 @@
-# home-credit-default-risk
-Credit-risk prediction using Logistic Regression, Random Forest, and XGBoost, with exploratory analysis, repayment-history feature engineering, cross-validation, holdout evaluation, and SHAP explanations.
+# Home Credit Default Risk
+
+Exploratory analysis and machine learning to predict payment difficulty,
+with repayment-history feature engineering and a simulated review queue.
+
+## Objective
+
+Estimate payment difficulty for current Home Credit applications and
+evaluate whether ranking applications by predicted risk can help
+prioritize additional review.
+
+The outcome is the dataset's TARGET label. The project does not measure
+the effect of an intervention or implement an automatic lending decision.
+
+## Dataset
+
+Source: [Home Credit Default Risk — Kaggle](https://www.kaggle.com/competitions/home-credit-default-risk/data)
+
+The labelled application table contains 307,511 applications.
+
+### Data used in this version
+
+| Source | Use |
+|---|---|
+| application_train.csv | Application features, target, development and holdout partitions |
+| installments_payments.csv | Engineered repayment-history features |
+| previous_application.csv | Exploratory analysis and early feature experiments |
+| bureau.csv | Exploratory analysis of external credit records |
+
+The selected final model uses application and instalment-history inputs.
+
+Monthly bureau, POS/cash, and credit-card histories are potential
+extensions. Competition test predictions and a Kaggle submission have
+not been produced in this version.
+
+Raw datasets are obtained separately from Kaggle.
+
+## Approach
+
+1. Explore application, previous-application, and credit-history data.
+2. Define conservative rules for assessing recorded instalment repayments.
+3. Engineer application ratios and applicant-level repayment summaries.
+4. Compare feature sets and classification algorithms.
+5. Evaluate the selected model on a reserved holdout.
+6. Examine review prioritization, group-level calibration, and SHAP explanations.
+
+### Selected inputs
+
+The final model uses 16 original inputs:
+
+- Four basic application inputs.
+- Three external scores.
+- Five application ratios.
+- Four repayment-history inputs.
+
+Missing numeric inputs are imputed using training-data medians.
+Missingness indicators are added where applicable.
+
+## Validation
+
+- Development applications: 246,208.
+- Holdout applications: 61,303.
+- Model comparison: five-fold stratified cross-validation on development data.
+- Preprocessing is fitted within each training fold.
+
+### Development cross-validation results
+
+| Model | Mean ROC AUC | Mean average precision |
+|---|---:|---:|
+| Logistic regression | 0.7370 | 0.2177 |
+| Random forest | 0.7466 | 0.2304 |
+| XGBoost | 0.7561 | 0.2427 |
+
+XGBoost was selected using development results.
+
+Full holdout metrics are available in
+[holdout_results.csv](reports/holdout_results.csv).
+
+## Simulated review queue
+
+Applications were ranked by predicted risk. The highest-risk 10% were
+selected for additional review.
+
+| Measure | Holdout result |
+|---|---:|
+| Applications selected | 6,131 |
+| Difficulty cases identified | 1,656 |
+| False positives | 4,475 |
+| Difficulty cases outside the selected group | 3,290 |
+| Precision | 27.01% |
+| Recall | 33.48% |
+| Lift relative to overall difficulty rate | 3.35 |
+
+Approximately 27% of selected applications had recorded difficulty,
+compared with approximately 8% across the holdout.
+
+These results describe historical selection performance. They do not
+demonstrate financial savings or improved repayment outcomes.
+
+## Model interpretation
+
+In the explanation sample, EXT_SOURCE_2 and EXT_SOURCE_3 had the largest
+mean absolute SHAP contributions.
+
+Repayment timeliness and loan ratios also contributed substantially.
+NOT_COVERED_ON_TIME_PCT was the leading repayment-history input.
+
+![Global SHAP importance](figures/global_shap_importance.png)
+
+SHAP explanations describe model behaviour rather than causes of
+payment difficulty.
+
+## Project files
+
+| Location | Contents |
+|---|---|
+| notebooks/ | Analysis and modelling notebook, plus repayment feature helper |
+| reports/ | Model comparisons, holdout metrics, calibration and feature summaries |
+| figures/ | Exported explanation charts |
+| requirements.txt | Versions of the principal Python dependencies |
+
+## Running the project
+
+1. Download the original data from Kaggle.
+2. Install the dependencies listed in requirements.txt.
+3. Open notebooks/01_home_credit_analysis_and_modeling.ipynb in Jupyter.
+4. Update the notebook's data paths for your computer.
+5. Keep home_credit_repayment_features.py beside the notebook.
+6. Run the notebook in order.
+
+The repayment feature builder uses temporary disk storage. Processing
+the complete repayment table can take time.
+
+## Limitations
+
+- Random historical validation does not establish future performance.
+- Recorded histories can be incomplete or require exclusion.
+- No assessable history does not imply perfect repayment.
+- Correlated inputs can share or substitute for one another's contributions.
+- Group-average calibration does not guarantee individual probability accuracy.
+- Additional data sources may improve performance but require controlled testing.
+- The model has not been validated for live lending decisions.
+
+## Tools
+
+Python, pandas, NumPy, scikit-learn, XGBoost, Matplotlib, Jupyter,
+SQLite, and joblib.
