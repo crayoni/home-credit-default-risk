@@ -123,7 +123,7 @@ payment difficulty.
 
 1. Download the original data from Kaggle.
 2. Install the dependencies listed in requirements.txt.
-3. Open notebooks/01_home_credit_analysis_and_modeling.ipynb in Jupyter.
+3. Open notebooks/home_credit_analysis_and_modeling.ipynb in Jupyter.
 4. Update the notebook's data paths for your computer.
 5. Keep home_credit_repayment_features.py beside the notebook.
 6. Run the notebook in order.
