@@ -292,7 +292,7 @@ the complete instalment table can take time and requires sufficient
 free disk space.
 
 ## Limitations
-
+ 
 - Random historical validation does not establish future performance.
 - Recorded histories can be incomplete or require exclusion.
 - No assessable history does not imply perfect repayment.
