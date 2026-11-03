@@ -97,18 +97,51 @@ compared with approximately 8% across the holdout.
 These results describe historical selection performance. They do not
 demonstrate financial savings or improved repayment outcomes.
 
-## Model interpretation
+## Visualizations and model interpretation
 
-In the explanation sample, EXT_SOURCE_2 and EXT_SOURCE_3 had the largest
-mean absolute SHAP contributions.
+The figures below provide complementary views of the fitted model:
+training-time feature importance, global and feature-level SHAP patterns,
+and an explanation of one individual prediction.
 
-Repayment timeliness and loan ratios also contributed substantially.
-NOT_COVERED_ON_TIME_PCT was the leading repayment-history input.
+### 1. Training gain-based feature importance
+
+![Training gain-based feature importance](figures/training_gain_importance.png)
+
+*Gain-based importance summarises how much each feature contributes to
+improvements from the model's tree splits. It does not show whether a
+feature raises or lowers an individual prediction.*
+
+### 2. Global SHAP importance
 
 ![Global SHAP importance](figures/global_shap_importance.png)
 
-SHAP explanations describe model behaviour rather than causes of
-payment difficulty.
+*Global SHAP importance ranks features by their average absolute
+contribution to model predictions across the explanation sample.*
+
+In the explanation sample, EXT_SOURCE_2 and EXT_SOURCE_3 had the largest
+mean absolute SHAP contributions. Repayment timeliness and loan ratios
+also contributed substantially. NOT_COVERED_ON_TIME_PCT was the leading
+repayment-history input.
+
+### 3. SHAP dependence plots
+
+![SHAP dependence plots](figures/shap_dependence_plots.png)
+
+*Dependence plots show how observed feature values relate to their SHAP
+contributions. They help inspect the direction, shape, and possible
+non-linear patterns of the model's learned relationships.*
+
+### 4. Individual SHAP explanation
+
+![Individual SHAP explanation](figures/individual_shap_explanation.png)
+
+*The individual explanation decomposes one prediction into feature-level
+contributions relative to the model's baseline, showing which inputs
+push that prediction higher or lower.*
+
+SHAP and gain-based importance describe model behaviour, not causal
+effects. These explanations should support analysis and review, not be
+treated as reasons for an automatic lending decision.
 
 ## Project files
 
