@@ -1,7 +1,38 @@
-# Home Credit Default Risk
+# Home Credit Default Risk Prediction
 
-Exploratory analysis and machine learning to predict payment difficulty,
-with repayment-history feature engineering and a simulated review queue.
+An end-to-end credit-risk analytics and machine learning project that
+estimates payment difficulty for current Home Credit applications and
+examines how risk ranking can support a limited-capacity manual review
+process.
+
+This is a historical portfolio project using the Kaggle Home Credit
+Default Risk dataset. It is not a deployed lending system and does not
+make automatic approval or rejection decisions.
+
+## Skills demonstrated
+
+**Data Analytics**
+- Application profiling, missing-data inspection and outcome-rate analysis.
+- Segmentation by previous Home Credit application history and external bureau history.
+- Applicant-level aggregation of instalment repayment records.
+- Risk-group calibration and review-capacity analysis.
+
+**Data Science and Statistics**
+- Stratified development/holdout partitioning and five-fold cross-validation.
+- ROC-AUC and average precision for imbalanced classification.
+- Precision, recall, lift and confusion-matrix analysis.
+- Feature-group comparisons and model interpretation.
+
+**Machine Learning**
+- Reusable scikit-learn pipelines and median imputation with missingness indicators.
+- Logistic Regression, Random Forest and XGBoost.
+- Feature importance and XGBoost's native TreeSHAP contributions.
+- Model serialization, reload and prediction-consistency checks.
+
+**Data Processing**
+- Chunked CSV ingestion and disk-backed SQLite aggregation for repayment histories.
+- Applicant-level feature generation with row-count and key-integrity checks.
+- Reusable Python feature-engineering module.
 
 ## Objective
 
@@ -195,15 +226,70 @@ treated as reasons for an automatic lending decision.
 
 ## Running the project
 
-1. Download the original data from Kaggle.
-2. Install the dependencies listed in requirements.txt.
-3. Open notebooks/home_credit_analysis_and_modeling.ipynb in Jupyter.
-4. Update the notebook's data paths for your computer.
-5. Keep home_credit_repayment_features.py beside the notebook.
-6. Run the notebook in order.
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/crayoni/home-credit-default-risk.git
+cd home-credit-default-risk
+```
+
+### 2. Create an environment and install dependencies
+
+```bash
+python -m venv .venv
+```
+
+Activate it:
+
+```bash
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
+
+# macOS / Linux
+source .venv/bin/activate
+```
+
+Install the packages:
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 3. Download and place the data
+
+Download the required files from the
+[Kaggle competition data page](https://www.kaggle.com/competitions/home-credit-default-risk/data)
+and place these CSV files in a local `data/` folder:
+
+- `application_train.csv`
+- `installments_payments.csv`
+- `previous_application.csv`
+- `bureau.csv`
+
+The `data/` directory is excluded from Git so raw competition data
+is not committed.
+
+Alternatively, set the `HOME_CREDIT_DATA_DIR` environment variable
+to the folder containing your CSV files.
+
+### 4. Run the notebook
+
+Launch Jupyter from the repository root:
+
+```bash
+jupyter notebook
+```
+
+Open
+[`notebooks/home_credit_analysis_and_modeling.ipynb`](notebooks/home_credit_analysis_and_modeling.ipynb)
+and run the cells in order. The notebook detects the repository root
+and uses `data/` by default. The feature helper is stored beside the
+notebook.
 
 The repayment feature builder uses temporary disk storage. Processing
-the complete repayment table can take time.
+the complete instalment table can take time and requires sufficient
+free disk space.
 
 ## Limitations
 
@@ -217,5 +303,8 @@ the complete repayment table can take time.
 
 ## Tools
 
-Python, pandas, NumPy, scikit-learn, XGBoost, Matplotlib, Jupyter,
-SQLite, and joblib.
+Python, pandas, NumPy, scikit-learn, XGBoost, Matplotlib, Jupyter
+Notebook, SQLite (Python standard library) and joblib.
+
+XGBoost's native TreeSHAP contribution calculation is used for model
+explanations; the separate `shap` package is not required.
